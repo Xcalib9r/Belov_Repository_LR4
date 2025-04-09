@@ -9,7 +9,22 @@ int x,y;
 //Функция ввода данных
 function<void()> EnterNumber(int& varLink, string label)
 {
-    
+      return [&varLink, label]() {
+        int input;
+        while (true) {
+            cout << label << " (положительное число): ";
+            cin >> input;
+
+            if (cin.fail() || input <= 0) {
+                cout << "Ошибка! Введите положительное целое число.\n";
+                cin.clear();
+                cin.ignore(10000, '\n');
+            } else {
+                varLink = input;
+                break;
+            }
+        }
+    };
 }
 void CalcSr()
 {
