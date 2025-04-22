@@ -2,6 +2,7 @@
 #include <map>
 #include <string>
 #include <functional>
+#include <cmath>
 
 using namespace std;
 
@@ -38,7 +39,12 @@ void CalcSr()
 }
 void CalcGr()
 {
-
+    if (x <= 0 || y <= 0) {
+        cout << "Ошибка! Сначала введите X и Y.\n";
+        return;
+    }
+    double Gr = sqrt(x * y);
+    cout << "Среднее геометрическое: " << Gr << endl;
 }
 
 //структура меню
