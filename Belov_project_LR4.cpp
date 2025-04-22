@@ -28,6 +28,12 @@ function<void()> EnterNumber(int& varLink, string label)
 }
 void CalcSr()
 {
+    if (x <= 0 || y <= 0) {
+        cout << "Ошибка! Сначала введите X и Y.\n";
+        return;
+    }
+    double Sr = (x + y) / 2.0;
+    cout << "Среднее арифметическое: " << Sr << endl;
 
 }
 void CalcGr()
