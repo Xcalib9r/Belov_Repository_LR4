@@ -9,10 +9,31 @@ int x,y;
 //Функция ввода данных
 function<void()> EnterNumber(int& varLink, string label)
 {
-    
+      return [&varLink, label]() {
+        int input;
+        while (true) {
+            cout << label << " (положительное число): ";
+            cin >> input;
+
+            if (cin.fail() || input <= 0) {
+                cout << "Ошибка! Введите положительное целое число.\n";
+                cin.clear();
+                cin.ignore(10000, '\n');
+            } else {
+                varLink = input;
+                break;
+            }
+        }
+    };
 }
 void CalcSr()
 {
+    if (x <= 0 || y <= 0) {
+        cout << "Ошибка! Сначала введите X и Y.\n";
+        return;
+    }
+    double Sr = (x + y) / 2.0;
+    cout << "Среднее арифметическое: " << Sr << endl;
 
 }
 void CalcGr()
